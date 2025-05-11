@@ -92,7 +92,7 @@ If we want to compute the dual of $s_{i,k}$ we draw a rectangle
 \end{equation}
 \end{proof}
 We remark that indeed this same method can be iterated just realizing that the Auslander-Reiten quiver associated to The Nakayama algebra by right multiplication is the same but with the arrows reversed. 
-\begin{theorem}
+\begin{theorem}\label{Theorem reflexive modules}
 	An idecomposable module $s_{i,k}$ is reflexive if and only if $d_{i+k}=c_{i+k-d_{i+k}}$ and $d_{i+k-1}\geq d_{i+k}$.
 \end{theorem}
 \begin{proof}
@@ -141,11 +141,13 @@ Since we just need to check the dimension is enough to check $d_{i+k}=c_{i+k-d_{
 \end{proof}
 We study now the specialization of the formula above for the case of simple modules.
 \begin{theorem}
-Let $s_{k,1}$ a simple module. Then $s_k$ is reflexive
+Let $s_{k,1}$ a non projective simple module. Then $s_k$ is reflexive
 if and only if $d_{k+1}\leq d_k \leq d_{k-1}$.
 \end{theorem}
 \begin{proof}
-	
+	We notice that $d_k\geq d_{k+1}$ is a specialization of the condition in Theorem \ref{Theorem reflexive modules}.
+	The other inequality comes from a study of the dimension of the double dual. Notice that we need that the dual of our module has just one injective reachable.
+	Moreover we know this injective should be in the same diagonal(from right to left) otherwise it will not be torsion free. The condition for such a diagonal to have jut one injective is $d_{k}\leq d_{k-1}$ otherwise clearly there will be more injectives in that diagonal.
 \end{proof}
 \begin{theorem}
 	Let $F$ the Lalanne-Kreweras involution. 
