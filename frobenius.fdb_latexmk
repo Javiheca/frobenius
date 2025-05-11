@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex frobenius"] 0 "frobenius.aux" "frobenius.bbl" "frobenius" 1746959265.78164 0
+["bibtex frobenius"] 0 "frobenius.aux" "frobenius.bbl" "frobenius" 1746960126.92813 0
   "C:/Users/JaviSM/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "frobenius.aux" 0 -1 0 "pdflatex"
   "refs.bib" 0 -1 0 ""
@@ -7,7 +7,7 @@
   "frobenius.bbl"
   "frobenius.blg"
   (rewritten before read)
-["pdflatex"] 1746959263.71596 "c:/Users/JaviSM/OneDrive - UPV EHU/Documentos/frobenius/frobenius.tex" "frobenius.pdf" "frobenius" 1746959265.78248 0
+["pdflatex"] 1746960124.94749 "c:/Users/JaviSM/OneDrive - UPV EHU/Documentos/frobenius/frobenius.tex" "frobenius.pdf" "frobenius" 1746960126.92892 0
   "C:/Users/JaviSM/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1746911751 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/JaviSM/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1746911147 28976 e6044fff854c4fdcd9c541092b9dc2a5 ""
   "C:/Users/JaviSM/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1746911756 31952 dfc0214646a5d38a519967a6a7d2a2ae ""
@@ -177,10 +177,10 @@
   "C:/Users/JaviSM/AppData/Local/Programs/MiKTeX/tex/latex/tools/bm.sty" 1700599895 13231 2c742011581e2bf297e33520567d9464 ""
   "C:/Users/JaviSM/AppData/Local/Programs/MiKTeX/tex/latex/tools/enumerate.sty" 1700599895 3468 0ef513f22d965f96b06adb5cff671cd7 ""
   "C:/Users/JaviSM/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/JaviSM/OneDrive - UPV EHU/Documentos/frobenius/frobenius.tex" 1746959263 12768 acde7a8ce1ce6e34b6f7e9f692ed8cf3 ""
-  "frobenius.aux" 1746959264 666 f2bf2781a7373c4a046aca42bd350966 "pdflatex"
+  "c:/Users/JaviSM/OneDrive - UPV EHU/Documentos/frobenius/frobenius.tex" 1746960124 13188 8e2434d13836ca9179abfa26fd3c0caa ""
+  "frobenius.aux" 1746960126 666 a7ed33d80f0a2470fe6c2faab143e6c4 "pdflatex"
   "frobenius.bbl" 0 -1 0 "bibtex frobenius"
-  "frobenius.tex" 1746959263 12768 acde7a8ce1ce6e34b6f7e9f692ed8cf3 ""
+  "frobenius.tex" 1746960124 13188 8e2434d13836ca9179abfa26fd3c0caa ""
   (generated)
   "frobenius.aux"
   "frobenius.log"
