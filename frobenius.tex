@@ -154,6 +154,26 @@ if and only if $d_{k+1}\leq d_k \leq d_{k-1}$.
 \begin{proof}
 
 \end{proof}
+\begin{corollary}
+	The number of Nakayama algebras with $n$ simple modules and not of them reflexive except the projective one is given by the Motzkin numbers.
+\end{corollary}
+\begin{proof}
+	We first notice that checking the number of modules with non simple non projective modules is the same as checking the number of Dyckpath of length $n$ with no $UUU$.
+	We prove that this numbers follows the same recurrence relation as the Motzkin numbers.
+\begin{equation}
+	\label{eq:Motzkin} 
+	M_n=M_{n-1}+\sum_{i=0}^{n-2}M_iM_{n-i-2}
+\end{equation}
+We notice that similar to the prove that the number of Dyckpath follows the catalan numbers,
+we can describe any possible path by looking at the first time it touches the x-axis.
+If it first touches the x-axis in $(2,0)$ then we obtain $M_{n-1}$. We then can consider the ones that touches first
+the x-axis in $(2j,0)$ then we would have the amount of ways to arrive to $(2j,0)$ times $M_{n-j}$. 
+Notice that to arrive to $(2j,0)$ without touching the x-axis we can consider the paths that go from 
+$(1,1)$ to $(2j-1,1)$ without touching the $x$ axis. But since we are not allow to go three times
+in arrow up we can consider without lost of generality that after that it goes up and then down.
+In other words this will be like the paths from $(3,1)$ to $(2j-1,1)$ with the rule of not crossing the $x=1$ axis and not going three times in a row up.
+This by induction will be $M_{j-2}$. We now notice that under a rearrengment of the indices we have deduced \ref{eq:Motzkin}
+\end{proof}
 \section{Computation of the dimension of the double dual}
 Take a module $M_{i,k}$, where $i$ presents the first non-zero index in our chosen module and $k$ its dimension. 
 In order to compute the dual, we need to count all the projective modules, reachable from $M_{i,k}$. 
