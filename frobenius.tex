@@ -33,34 +33,34 @@
 \end{abstract}
 
 \section{Introduction}
-Through this document we study sufficient and enough and sufficient conditions for a module to be reflexive over a nakayama algebra. We recall that a module is reflexive over $R$ if $M^{**}\cong M$ where $M^{**}:=Hom_R(Hom_R(M,R),R).$ We recall that is sufficient to check that the module $M$ is torsionless and the dimension coincide.
+Through this document we study necessary and sufficient conditions for a module to be reflexive over a Nakayama algebra. We recall that a module is reflexive over $R$ if $M^{**}\cong M$ where $M^{**}:=Hom_R(Hom_R(M,R),R).$ We recall that is sufficient to check that the module $M$ is torsionless and the dimension coincide.
 \begin{remark}
-    For classifying reflexive modules is enough to study idecomposable modules since any other module decompose into direct sum of idecomposables and taking doble duals commute with direct sums, i.e. $\bigoplus_i M_i^{**}\cong (\bigoplus_iM_i)^{**}.$
+    For classifying reflexive modules is enough to study indecomposable modules since any other module decomposes into direct sum of indecomposables and taking double duals commutes with direct sums, i.e. $\oplus_i M_i^{**}\cong (\oplus_iM_i)^{**}.$
 \end{remark}
-For a linear Nakayama algebra $A$ we know that the idecomposable modules are given by $s_{i,k}:=e_iA/J^kA$ where $J$ is the Jacobson Radical. This idecomposable fit nicely in the Auslander Reiten quiver which we recall is determined by dyckpaths using the Kupisch series which determines their Auslander-Reiten quiver.We want to use this combinatorial representation to give an explicit method to compute duals and eventually classify the idecomposable modules using the (co)Kupisch series. 
+For a linear Nakayama algebra $A$ we know that the indecomposable modules are given by $s_{i,k}:=e_iA/J^kA$ where $J$ is the Jacobson Radical. This indecomposables fit nicely in the Auslander-Reiten quiver which we recall is determined by Dyck paths, using the Kupisch series which determines their Auslander-Reiten quiver. We want to use this combinatorial representation to give an explicit method to compute duals and eventually classify the indecomposable modules using the (co)Kupisch series. 
+
 \section{Combinatorial method to compute duals}
-We ilustrate our method with the following auslander reiten quiver corresponding to the nakayama algebra with kupisch series $[4,3,2,3,2,1].$
+We ilustrate our method with the following Auslander-Reiten quiver corresponding to the Nakayama algebra with Kupisch series $[4,3,2,3,2,1].$
 
+Moreover we can determine precisely the dual using the following remark and proposition.
+\begin{remark}
+    $Hom(s_{i,k},A)\cong Ae_i/J^wA$ where $w$ is the dimension of the dual. This means that the dual is indecomposable. We can further obtain more information about the dual by regarding the projective module $s_{i',k'}$ for the smallest $i'$ such that $Hom(s_{i,k},s_{i',k'})\neq 0$ then is clear that $Hom(s_{i,k},R)\cong s_{i',w}.$ 
+\end{remark}
+With this it is clear that in order to compute the dual we should regard the number of projectives in the Dyck path, to which there exist non trivial maps from our module. We should find the one with the lowest $i$ which is the one more on the right in the picture. We realize this by the following geometrical construction. 
 
- Moreover we can determine precisely the dual using the following remark and proposition.
- \begin{remark}
-     $Hom(s_{i,k},A)\cong Ae_i/J^wA$ where $w$ is the dimension of the dual. This means that the dual is indecomposable. We can further obtain more information about the dual by regarding the projective module $s_{i',k'}$ for the smallest $i'$ such that $Hom(s_{i,k},s_{i',k'})\neq 0$ then is clear that $Hom(s_{i,k},R)\cong s_{i',w}.$ 
- \end{remark}
-With this is clear that to deduce the dual we should regard in the dyck path the number of projectives for which our module has non trivial maps. We should fin the one with the lowest $i$ which is the one more in the right in the picture. We realize this by the following geometrical construction. 
-
-If we want to compute the dual of $s_{i,k}$ we draw a rectangle with one of the vertex in $s_{i,k}.$ We draw a line in direction right down until we touch the $x$ axis and from there up right until the quiver ends. We finish the rectangle in the only possible way. By the properties of the Auslander Reiten quiver the amount of projectives in the square correspond with the dimension of the dual. We also know by the explanation above that the dual should have same first index as the vertex in the right top position.
+If we want to compute the dual of $s_{i,k}$ we draw a rectangle with one of the vertices in $s_{i,k}.$ We draw a line in direction right down until we touch the $x$ axis and from there up right until the quiver ends. We finish the rectangle by drawing two parallel lines in the obvious way. By the properties of the Auslander-Reiten quiver the amount of projectives in the square corresponds to the dimension of the dual. We also know by the explanation above that the dual should have same first index as the vertex in the right top position.
 \begin{proposition}
-    For a Nakayama algebra with Kupisch series $c_i=dime_iA$ respectively $d_i=dim Ae_i$.The dual of $s_{i,k}$ os $s_{i-d_i+1,k+d_i-d_{i+k}}.$
+    For a Nakayama algebra with Kupisch series $c_i=\text{dim}(e_iA)$ and $d_i=\text{dim}(Ae_i)$, the dual of $s_{i,k}$ is $s_{i-d_i+1,k+d_i-d_{i+k}}.$
 \end{proposition}
 \begin{proof}
     We first compute the vertices of the square. The right lower is $s_{i,1}$ we then consider the top right vertex which would be $s_{i-d_{i}+1,d_{i}}.$ From this it follows that the first index is indeed $i-d_i+1.$ We compute the dimension. Notice that in each diagonal lies $d_{i}-d_{i+1}+1$ elements. We then consider the $k$ diagonals and get:
     $$\sum_{j=0}^{k-1} d_{i+j}-d_{i+j+1}+1=k+d_i-d_{i+k}$$
 \end{proof}
-We remark that indeed this same method can be iterate just realizing that the auslander reiten quiver associated to The Nakayama algebra by right multiplication is the same but with the arrows reversed. 
+We remark that indeed this same method can be iterated just realizing that the Auslander-Reiten quiver associated to The Nakayama algebra by right multiplication is the same but with the arrows reversed. 
+
+We study now the specialization of the formula above for the case of simple mpodules.
 
 
-
-We study now an specialization of the formula above for the case of simple mpodules.
 \section{Computation of the dimension of the double dual}
 Take a module $M_{i,k}$, where $i$ presents the first non-zero index in our chosen module and $k$ its dimension. 
 In order to compute the dual, we need to count all the projective modules, reachable from $M_{i,k}$. 
@@ -106,8 +106,8 @@ To get the indices of double dual, we just need to set
 
 We get that the double dual of module $M_{i,k}$ is given by the indices
 \begin{align*}
-    i - d_i + c_{i - d_i}, \\
-    k + d_i - d_{i+k} + c_{i+k-{d_{i+k}}} - c_{i-d_i}.
+    &i - d_i + c_{i - d_i}, \\
+    &k + d_i - d_{i+k} + c_{i+k-{d_{i+k}}} - c_{i-d_i}.
 \end{align*}
 
 In order for the module $M_{i,k}$ to be reflexive, we need to have $i - d_i + c_{i - d_i} = i$ and $k + d_i - d_{i+k} + c_{i+k-{d_{i+k}}} - c_{i-d_i} = k$.
