@@ -1,0 +1,8 @@
+$ cat .gitignore
+*.fls
+*.aux
+*.log
+*.pdf
+*.gz
+*.fdb_latexmk
+*.synctex.gz
