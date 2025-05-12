@@ -7,6 +7,9 @@
 \numberwithin{equation}{section}
 \usepackage{tikz}
 \usepackage{tikz-cd}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+
 \usetikzlibrary{matrix, positioning}
 \usepackage{enumerate}
 \theoremstyle{definition}
@@ -106,7 +109,7 @@ We recall the computation of the first dual and we get $s_{i-d_i+1,d_i-d_{i+k}+k
 To compute the second dual, we reverse the arrows and move to the left on the same Dyck path. By line we now mean the diagonal starting at index $j$ and going to the left and the length of line $j$ is $c_j$.
 For convinience we will first compute the dual of an arbitrary module $M_{l,m}$ again, this time in the other direction. We will then enter the indices of the first dual obtained above.
 
-To get the dimension of the dual, by duality between projectives and injectives, we need to count the injective modules reachable from $M_{i,k}$.
+To get the dimension of the dual, by duality between projectives and injectives, we need to count the injective modules reachable from $M_{l,m}$.
 They lie on lines $j = l, l+1, \dots, l+m-1$ again and on line $j$ there are $c_j - c_{j+1} + 1$ of them.
 We get that the dimension of the dual is given by
 \begin{equation}
@@ -141,8 +144,9 @@ Since we just need to check the dimension is enough to check $d_{i+k}=c_{i+k-d_{
 \end{proof}
 We study now the specialization of the formula above for the case of simple modules.
 \begin{theorem}
-Let $s_{k,1}$ a non projective simple module. Then $s_k$ is reflexive
-if and only if $d_{k+1}\leq d_k \leq d_{k-1}$.
+    \label{simple_reflexive_iff_inequality}
+    Let $s_{k,1}$ a non projective simple module. Then $s_k$ is reflexive
+    if and only if $d_{k+1}\leq d_k \leq d_{k-1}$.
 \end{theorem}
 \begin{proof}
 	We notice that $d_k\geq d_{k+1}$ is a specialization of the condition in Theorem \ref{Theorem reflexive modules}.
@@ -151,11 +155,93 @@ if and only if $d_{k+1}\leq d_k \leq d_{k-1}$.
 \end{proof}
 \begin{theorem}
 	Let $F$ the Lalanne-Kreweras involution. 
-	Then the number of simple non projective reflexive modules is given by the statistics UUU in F(D) with D the Dyckpath defined by our quiver algebra.
+	Then the number of simple non projective reflexive modules is given by the statistics UUU in $F(D)$ with $D$ the Dyckpath defined by our quiver algebra.
 \end{theorem}
 \begin{proof}
+% https://q.uiver.app/#q=WzAsNDIsWzEsMywiXFxidWxsZXQiXSxbMiwyLCJcXGJ1bGxldCJdLFszLDMsIlxcYnVsbGV0Il0sWzQsMiwiXFxidWxsZXQiXSxbNSwzLCJcXGJ1bGxldCJdLFs2LDIsIlxcYnVsbGV0Il0sWzcsMSwiXFxidWxsZXQiXSxbOCwyLCJcXGJ1bGxldCJdLFs5LDEsIlxcYnVsbGV0Il0sWzEwLDAsIlxcYnVsbGV0Il0sWzExLDEsIlxcYnVsbGV0Il0sWzEyLDIsIlxcYnVsbGV0Il0sWzEzLDMsIlxcYnVsbGV0Il0sWzE0LDIsIlxcYnVsbGV0Il0sWzE1LDEsIlxcYnVsbGV0Il0sWzE2LDAsIlxcYnVsbGV0Il0sWzE3LDEsIlxcYnVsbGV0Il0sWzE4LDIsIlxcYnVsbGV0Il0sWzE5LDMsIlxcYnVsbGV0Il0sWzIwLDIsIlxcYnVsbGV0Il0sWzIxLDMsIlxcYnVsbGV0Il0sWzAsMywiXFxidWxsZXQiLFswLDAsMTAwLDFdXSxbMjIsMywiXFxidWxsZXQiLFswLDAsMTAwLDFdXSxbNiw2LCJcXGJ1bGxldCJdLFs4LDQsIlxcYnVsbGV0IixbMzU2LDk1LDYwLDFdXSxbMTEsMywiXFxidWxsZXQiLFszNTYsOTUsNjAsMV1dLFsxNSwzLCJcXGJ1bGxldCIsWzM1Niw5NSw2MCwxXV0sWzE3LDMsIlxcYnVsbGV0IixbMzU2LDk1LDYwLDFdXSxbMTIsNCwiXFxidWxsZXQiXSxbMTMsNSwiXFxidWxsZXQiXSxbMTYsNCwiXFxidWxsZXQiXSxbMTQsNCwiXFxidWxsZXQiXSxbMTgsNCwiXFxidWxsZXQiXSxbMTksNSwiXFxidWxsZXQiXSxbMjAsNCwiXFxidWxsZXQiXSxbOSw1LCJcXGJ1bGxldCJdLFsxMCw0LCJcXGJ1bGxldCJdLFsyLDQsIlxcYnVsbGV0Il0sWzMsNSwiXFxidWxsZXQiXSxbNCw2LCJcXGJ1bGxldCJdLFs1LDcsIlxcYnVsbGV0Il0sWzcsNSwiXFxidWxsZXQiXSxbMjEsMjIsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMCwxXSxbMSwyLCJiXzkiXSxbMiwzXSxbMyw0LCJiXzgiXSxbNCw1XSxbNSw2XSxbNiw3LCJiXzciXSxbNyw4XSxbOCw5XSxbOSwxMCwiYl82Il0sWzEwLDExLCJiXzUiXSxbMTEsMTIsImJfNCJdLFsxMiwxM10sWzEzLDE0XSxbMTQsMTVdLFsxNSwxNiwiYl8zIl0sWzE2LDE3LCJiXzIiXSxbMTcsMTgsImJfMSJdLFsxOCwxOV0sWzE5LDIwLCJiXzAiXSxbMTEsMjUsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzgsMjUsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEwLDI0LCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs1LDI0LCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxNiwyNiwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMTMsMjYsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzE3LDI3LCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxNCwyNywiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMjYsMzAsImJfMiciXSxbMjksMzFdLFszMSwyNl0sWzI1LDI4LCJiXzQnIl0sWzI4LDI5LCJiXzMnIl0sWzMwLDI3XSxbMjcsMzIsImJfMSciXSxbMzIsMzMsImJfMCciXSxbMzMsMzRdLFszNCwyMF0sWzI0LDM1LCJiXzUnIl0sWzM1LDM2XSxbMzYsMjVdLFswLDM3LCJiXzknIiwyXSxbMzcsMzgsImJfOCciLDJdLFszOCwzOSwiYl83JyIsMl0sWzM5LDQwLCJiXzYnIiwyXSxbNDAsMjNdLFsyMyw0MV0sWzQxLDI0XV0=
+  
+\[
+\begin{adjustbox}{max width=\textwidth}
+\begin{tikzcd}
+	&&&&&&&&&& \bullet &&&&&& \bullet \\
+	&&&&&&& \bullet && \bullet && \bullet &&&& \bullet && \bullet \\
+	&& \bullet && \bullet && \bullet && \bullet &&&& \bullet && \bullet &&&& \bullet && \bullet \\
+	\textcolor{white}{\bullet} & \bullet && \bullet && \bullet &&&&&& \textcolor{rgb,255:red,250;green,56;blue,69}{\bullet} && \bullet && \textcolor{rgb,255:red,250;green,56;blue,69}{\bullet} && \textcolor{rgb,255:red,250;green,56;blue,69}{\bullet} && \bullet && \bullet & \textcolor{white}{\bullet} \\
+	&& \bullet &&&&&& \textcolor{rgb,255:red,250;green,56;blue,69}{\bullet} && \bullet && \bullet && \bullet && \bullet && \bullet && \bullet \\
+	&&& \bullet &&&& \bullet && \bullet &&&& \bullet &&&&&& \bullet \\
+	&&&& \bullet && \bullet \\
+	&&&&& \bullet
+	\arrow["{b_6}", from=1-11, to=2-12]
+	\arrow["{b_3}", from=1-17, to=2-18]
+	\arrow["{b_7}", from=2-8, to=3-9]
+	\arrow[from=2-10, to=1-11]
+	\arrow[dashed, no head, from=2-10, to=4-12]
+	\arrow["{b_5}", from=2-12, to=3-13]
+	\arrow[dashed, no head, from=2-12, to=5-9]
+	\arrow[from=2-16, to=1-17]
+	\arrow[dashed, no head, from=2-16, to=4-18]
+	\arrow["{b_2}", from=2-18, to=3-19]
+	\arrow[dashed, no head, from=2-18, to=4-16]
+	\arrow["{b_9}", from=3-3, to=4-4]
+	\arrow["{b_8}", from=3-5, to=4-6]
+	\arrow[from=3-7, to=2-8]
+	\arrow[dashed, no head, from=3-7, to=5-9]
+	\arrow[from=3-9, to=2-10]
+	\arrow[dashed, no head, from=3-13, to=4-12]
+	\arrow["{b_4}", from=3-13, to=4-14]
+	\arrow[from=3-15, to=2-16]
+	\arrow[dashed, no head, from=3-15, to=4-16]
+	\arrow[dashed, no head, from=3-19, to=4-18]
+	\arrow["{b_1}", from=3-19, to=4-20]
+	\arrow["{b_0}", from=3-21, to=4-22]
+	\arrow[no head, from=4-1, to=4-23]
+	\arrow[from=4-2, to=3-3]
+	\arrow["{b_9'}"', from=4-2, to=5-3]
+	\arrow[from=4-4, to=3-5]
+	\arrow[from=4-6, to=3-7]
+	\arrow["{b_4'}", from=4-12, to=5-13]
+	\arrow[from=4-14, to=3-15]
+	\arrow["{b_2'}", from=4-16, to=5-17]
+	\arrow["{b_1'}", from=4-18, to=5-19]
+	\arrow[from=4-20, to=3-21]
+	\arrow["{b_8'}"', from=5-3, to=6-4]
+	\arrow["{b_5'}", from=5-9, to=6-10]
+	\arrow[from=5-11, to=4-12]
+	\arrow["{b_3'}", from=5-13, to=6-14]
+	\arrow[from=5-15, to=4-16]
+	\arrow[from=5-17, to=4-18]
+	\arrow["{b_0'}", from=5-19, to=6-20]
+	\arrow[from=5-21, to=4-22]
+	\arrow["{b_7'}"', from=6-4, to=7-5]
+	\arrow[from=6-8, to=5-9]
+	\arrow[from=6-10, to=5-11]
+	\arrow[from=6-14, to=5-15]
+	\arrow[from=6-20, to=5-21]
+	\arrow["{b_6'}"', from=7-5, to=8-6]
+	\arrow[from=7-7, to=6-8]
+	\arrow[from=8-6, to=7-7]
+\end{tikzcd}
+\end{adjustbox}
+\]
+    Let $D$ be the Dyck path, defined by our quiver algebra and $F(D)$ the Dyck path obtained by applying the Lalanne-Kreweras involution.
+    We will present Dyck paths with sequences of $a$'s and $b$'s, denoting up-steps and down-steps respectively (we avoid usind $u$'s and $d$'s to avoid confusion with the notation of the Dyck path and cokupisch series).
+
+    We will work with the geometric description of computing the Lalanne-Kreweras involution, described in (TODO: cite), in which we draw a southeast line from the midpoint of each $UU$ and a southeast line from the midpoint of each $DD$. 
+    We then take the intersection of $i$-th southeast and $i$-th southwest line for each $i$. Reflecting the obtained points over $x$-axis and taking the reflected points as valleys gives a unique Dyck path $F(D)$, which is the Lalanne-Kreweras involution of $D$.
+    For convinience of the argument we will consider $\tilde{F(D)}$ to be the Dyck path, obtained by reflecting $F(D)$ over the $x$-axis. Note that we obtain $\tilde{F(D)}$ by constructing the points as above and taking them as (inverted) valleys in (inverted) Dyck path.
+
+    By theorem \ref{simple_reflexive_iff_inequality} we just need to show that the number of indices $k$ with $d_{k+1}\leq d_k \leq d_{k-1}$ in $D$ is equal to the number of occurances of three consequtive upsteps in $F(D)$ or equivalently three consequtive downsteps in $\tilde{F(D)}$.
+
+    Denote by $a$ and $b$ the steps of $D$ and by $a'$ and $b'$ the steps of $\tilde{F(D)}$. There are exactly $n-1$ down-steps in $D$ and $n-1$ down-steps in $\tilde{F(D)}$.
+    Index them from $1$ to $n-1$ from right to left, so that the indexing matches the indexing of the cokupisch series of the corresponding Nakayama algebra.
+
+    Observe that there is an up-step between $b_i'$ and $b_{i-1}'$ in $\tilde{F(D)}$ if and only if there is a southwest line at index $i$. This is equivalent to the condition of having two consequtive down-steps $b_i$ and $b_{i-1}$ in $D$, meaning that $d_i \leq d_{i+1}$.
+    Thus we have two consequtive down-steps $b_i'b_{i-1}'$ in $\tilde{F(D)}$ if and only if $d_{i+1} \leq d_i$.
+
+    In conclusion, having three consequtive downsteps $b_{i+1}'b_i'b_{i-1}'$ in $\tilde{F(D)}$ is equivalent to having $d_{i+2} \leq d_{i+1} \leq d_{i}$ in $D$. Since the indices of $d_i$ run from $0$ to $n$ and the indices of $b_i$ from $0$ to $n-1$, the number of occurances coincide.
 
 \end{proof}
+
 \begin{corollary}
 	The number of Nakayama algebras with $n$ simple modules and not of them reflexive except the projective one is given by the Motzkin numbers.
 \end{corollary}
