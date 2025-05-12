@@ -41,26 +41,141 @@ For a linear Nakayama algebra $A$ we know that the indecomposable modules are gi
 
 \section{Combinatorial method to compute duals}
 We ilustrate our method with the following Auslander-Reiten quiver corresponding to the Nakayama algebra with Kupisch series $[4,3,2,3,2,1].$
-
+\[
+\scriptsize % Tamaño de fuente pequeño
+\begin{tikzcd}[scale=0.5, column sep=2pt, row sep=2pt] % escala + separación mínima
+  &&&&&&& \textcolor[rgb]{0.839,0.361,0.361}{{\bullet{s_{0,4}}}} \\
+  && \textcolor[rgb]{0.839,0.361,0.361}{{\bullet {s_{3,3}}}} &&&& \textcolor[rgb]{0.839,0.361,0.361}{{\bullet{s_{1,3}}}} && {\bullet{s_{0,3}}} \\
+  & \textcolor[rgb]{0.839,0.361,0.361}{{\bullet{s_{4,2}}}} && {\bullet{s_{3,2}}} && \textcolor[rgb]{0.839,0.361,0.361}{{\bullet{s_{2,2}}}} && {\bullet{s_{1,2}}} && {\bullet{s_{0,2}}} \\
+  \textcolor[rgb]{0.839,0.361,0.361}{{\bullet{s_{5,1}}}} && {\bullet{s_{4,1}}} && {\bullet{s_{3,1}}} && {\bullet{s_{2,1}}} && {\bullet{s_{1,1}}} && {\bullet{s_{0,1}}}
+  \arrow[color=cyan, from=1-8, to=2-9]
+  \arrow[from=2-3, to=3-4]
+  \arrow[color=cyan, from=2-7, to=1-8]
+  \arrow[color=cyan, from=2-7, to=3-8]
+  \arrow[color=cyan, from=2-9, to=3-10]
+  \arrow[from=3-2, to=2-3]
+  \arrow[from=3-2, to=4-3]
+  \arrow[from=3-4, to=4-5]
+  \arrow[from=3-6, to=2-7]
+  \arrow[from=3-6, to=4-7]
+  \arrow[from=3-8, to=2-9]
+  \arrow[color=cyan, from=3-8, to=4-9]
+  \arrow[from=3-10, to=4-11]
+  \arrow[from=4-1, to=3-2]
+  \arrow[from=4-3, to=3-4]
+  \arrow[from=4-5, to=3-6]
+  \arrow[from=4-7, to=3-8]
+  \arrow[color=cyan, from=4-9, to=3-10]
+\end{tikzcd}
+\]
 Moreover we can determine precisely the dual using the following remark and proposition.
 \begin{remark}
     $Hom(s_{i,k},A)\cong Ae_i/J^wA$ where $w$ is the dimension of the dual. This means that the dual is indecomposable. We can further obtain more information about the dual by regarding the projective module $s_{i',k'}$ for the smallest $i'$ such that $Hom(s_{i,k},s_{i',k'})\neq 0$ then is clear that $Hom(s_{i,k},R)\cong s_{i',w}.$ 
 \end{remark}
 With this it is clear that in order to compute the dual we should regard the number of projectives in the Dyck path, to which there exist non trivial maps from our module. We should find the one with the lowest $i$ which is the one more on the right in the picture. We realize this by the following geometrical construction. 
 
-If we want to compute the dual of $s_{i,k}$ we draw a rectangle with one of the vertices in $s_{i,k}.$ We draw a line in direction right down until we touch the $x$ axis and from there up right until the quiver ends. We finish the rectangle by drawing two parallel lines in the obvious way. By the properties of the Auslander-Reiten quiver the amount of projectives in the square corresponds to the dimension of the dual. We also know by the explanation above that the dual should have same first index as the vertex in the right top position.
+If we want to compute the dual of $s_{i,k}$ we draw a rectangle
+ with one of the vertices in $s_{i,k}.$ We draw a line in direction right 
+ down until we touch the $x$ axis and from there up right until 
+ the quiver ends. We finish the rectangle by drawing two parallel
+  lines in the obvious way. This method is ilustrate in the figure for the idecomposable module $s_{1,3}$ with the blue lines representing the rectangle. 
+  By the properties of the Auslander-Reiten quiver the amount of projectives in the square corresponds to the dimension of the dual. We also know by the explanation above that the dual should have same first index as the vertex in the right top position.
 \begin{proposition}
-    For a Nakayama algebra with Kupisch series $c_i=\text{dim}(e_iA)$ and $d_i=\text{dim}(Ae_i)$, the dual of $s_{i,k}$ is $s_{i-d_i+1,k+d_i-d_{i+k}}.$
+    For a Nakayama algebra with Kupisch series $c_i=\text{dim}(e_iA)$ and $d_i=\text{dim}(Ae_i)$, the dual of $s_{i,k}$ is 
+	$s_{i-d_i+1,k+d_i-d_{i+k}}.$
 \end{proposition}
 \begin{proof}
     We first compute the vertices of the square. The right lower is $s_{i,1}$ we then consider the top right vertex which would be $s_{i-d_{i}+1,d_{i}}.$ From this it follows that the first index is indeed $i-d_i+1.$ We compute the dimension. Notice that in each diagonal lies $d_{i}-d_{i+1}+1$ elements. We then consider the $k$ diagonals and get:
-    $$\sum_{j=0}^{k-1} d_{i+j}-d_{i+j+1}+1=k+d_i-d_{i+k}$$
+   \begin{equation}
+\label{eq:reachable}
+\sum_{j=i}^{i+k-1} (d_j - d_{j+1} + 1) = d_i - d_{i+k} + k,
+\end{equation}
 \end{proof}
 We remark that indeed this same method can be iterated just realizing that the Auslander-Reiten quiver associated to The Nakayama algebra by right multiplication is the same but with the arrows reversed. 
+\begin{theorem}\label{Theorem reflexive modules}
+	An idecomposable module $s_{i,k}$ is reflexive if and only if $d_{i+k}=c_{i+k-d_{i+k}}$ and $d_{i+k-1}\geq d_{i+k}$.
+\end{theorem}
+\begin{proof}
+We first proof that is torsion free iff $d_{i+k-1}\geq d_{i+k}$ and then we prove that
+the other condition correspond to the dimension counting.\\
+We know that a module is torsion free if and only if it is contained
+in a projective. If we look at the Auslander-Reiten quiver we realize that
+this is the case if and only if it has a projective in the same diagonal(from left to right) which 
+is true if and only if $d_{i+k-1}\geq d_{i+k}$.\\
+We recall the computation of the first dual and we get $s_{i-d_i+1,d_i-d_{i+k}+k}$. 
+To compute the second dual, we reverse the arrows and move to the left on the same Dyck path. By line we now mean the diagonal starting at index $j$ and going to the left and the length of line $j$ is $c_j$.
+For convinience we will first compute the dual of an arbitrary module $M_{l,m}$ again, this time in the other direction. We will then enter the indices of the first dual obtained above.
 
-We study now the specialization of the formula above for the case of simple mpodules.
+To get the dimension of the dual, by duality between projectives and injectives, we need to count the injective modules reachable from $M_{i,k}$.
+They lie on lines $j = l, l+1, \dots, l+m-1$ again and on line $j$ there are $c_j - c_{j+1} + 1$ of them.
+We get that the dimension of the dual is given by
+\begin{equation}
+\label{eq:injectives}      
+\sum_{j=l}^{l+m-1} (c_j - c_{j+1} + 1) = c_{l+m-1} - c_{l-1} + m.
+\end{equation}
 
+It remains to compute the first index of the dual.
+First observe that from the module $M_{l,m}$ we can reach the dimension $1$ by going down $(m - 1)$-times. The left-most vertex then lies on the same line as the lower vertex and thus has index $l + m - 1$.
+From the left most vertex we need to make additional steps down, until we reach the desired dimension of the dual.
+The number of steps is $(c_{l+m-1} - dim)$, where $dim$ denotes the dimension of the dual.
+Each step down increases the index by $1$, therefore we need to increase the index of left most vertex by $c_{l+m-1} - c_{l+m-1} + c_{l-1} - m = c_{l-1} - m$, where we took into account the dimension computed above.
 
+We get that the first index of the dual is given by 
+$$l + m - 1 + c_{l-1} - m = l + c_{l-1} - 1.$$
+
+To get the indices of double dual, we just need to set 
+\begin{align*}
+    l &= i - d_i + 1, \\
+    m &= d_i - d_{i+k} + k.
+\end{align*}
+
+We get that the double dual of module $M_{i,k}$ is given by the indices
+\begin{align*}
+    &i - d_i + c_{i - d_i}, \\
+    &k + d_i - d_{i+k} + c_{i+k-{d_{i+k}}} - c_{i-d_i}.
+\end{align*}
+
+In order for the module $M_{i,k}$ to be reflexive, we need to have $i - d_i + c_{i - d_i} = i$ and $k + d_i - d_{i+k} + c_{i+k-{d_{i+k}}} - c_{i-d_i} = k$.
+The first equation gives us $c_{i - d_i} = d_i$ and the second one, taking into account also the first equality, gives us $d_{i+k} = c_{i+k-{d_{i+k}}}$.
+Since we just need to check the dimension is enough to check $d_{i+k}=c_{i+k-d_{i+k}}$.
+\end{proof}
+We study now the specialization of the formula above for the case of simple modules.
+\begin{theorem}
+Let $s_{k,1}$ a non projective simple module. Then $s_k$ is reflexive
+if and only if $d_{k+1}\leq d_k \leq d_{k-1}$.
+\end{theorem}
+\begin{proof}
+	We notice that $d_k\geq d_{k+1}$ is a specialization of the condition in Theorem \ref{Theorem reflexive modules}.
+	The other inequality comes from a study of the dimension of the double dual. Notice that we need that the dual of our module has just one injective reachable.
+	Moreover we know this injective should be in the same diagonal(from right to left) otherwise it will not be torsion free. The condition for such a diagonal to have jut one injective is $d_{k}\leq d_{k-1}$ otherwise clearly there will be more injectives in that diagonal.
+\end{proof}
+\begin{theorem}
+	Let $F$ the Lalanne-Kreweras involution. 
+	Then the number of simple non projective reflexive modules is given by the statistics UUU in F(D) with D the Dyckpath defined by our quiver algebra.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+\begin{corollary}
+	The number of Nakayama algebras with $n$ simple modules and not of them reflexive except the projective one is given by the Motzkin numbers.
+\end{corollary}
+\begin{proof}
+	We first notice that checking the number of modules with non simple non projective modules is the same as checking the number of Dyckpath of length $n$ with no $UUU$.
+	We prove that this numbers follows the same recurrence relation as the Motzkin numbers.
+\begin{equation}
+	\label{eq:Motzkin} 
+	M_n=M_{n-1}+\sum_{i=0}^{n-2}M_iM_{n-i-2}
+\end{equation}
+We notice that similar to the prove that the number of Dyckpath follows the catalan numbers,
+we can describe any possible path by looking at the first time it touches the x-axis.
+If it first touches the x-axis in $(2,0)$ then we obtain $M_{n-1}$. We then can consider the ones that touches first
+the x-axis in $(2j,0)$ then we would have the amount of ways to arrive to $(2j,0)$ times $M_{n-j}$. 
+Notice that to arrive to $(2j,0)$ without touching the x-axis we can consider the paths that go from 
+$(1,1)$ to $(2j-1,1)$ without touching the $x$ axis. But since we are not allow to go three times
+in arrow up we can consider without lost of generality that after that it goes up and then down.
+In other words this will be like the paths from $(3,1)$ to $(2j-1,1)$ with the rule of not crossing the $x=1$ axis and not going three times in a row up.
+This by induction will be $M_{j-2}$. We now notice that under a rearrengment of the indices we have deduced \ref{eq:Motzkin}
+\end{proof}
 \section{Computation of the dimension of the double dual}
 Take a module $M_{i,k}$, where $i$ presents the first non-zero index in our chosen module and $k$ its dimension. 
 In order to compute the dual, we need to count all the projective modules, reachable from $M_{i,k}$. 

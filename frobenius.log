@@ -3,14 +3,14 @@ entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/masaz/Desktop/faks/Bonn/Frobenius_algebras/frobenius/frobenius.tex
-(c:/Users/masaz/Desktop/faks/Bonn/Frobenius_algebras/frobenius/frobenius.tex
-LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
-(C:\Users\masaz\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2024/02/08 v1.4n Standard LaTeX document class
-(C:\Users\masaz\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
-File: size12.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
+**"c:/Users/JaviSM/OneDrive - UPV EHU/Documentos/frobenius/frobenius.tex"
+(c:/Users/JaviSM/OneDrive - UPV EHU/Documentos/frobenius/frobenius.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+(C:\Users\JaviSM\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\JaviSM\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count194
 \c@section=\count195
@@ -428,6 +428,10 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 45.
+
+
+
 [1
 
 {C:/Users/masaz/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Program Files/MiKTeX/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
@@ -448,6 +452,10 @@ No file frobenius.bbl.
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
  15517 strings out of 473904
@@ -462,5 +470,6 @@ Output written on frobenius.pdf (4 pages, 228919 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
