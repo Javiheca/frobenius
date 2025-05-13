@@ -262,58 +262,6 @@ in arrow up we can consider without lost of generality that after that it goes u
 In other words this will be like the paths from $(3,1)$ to $(2j-1,1)$ with the rule of not crossing the $x=1$ axis and not going three times in a row up.
 This by induction will be $M_{j-2}$. We now notice that under a rearrengment of the indices we have deduced \ref{eq:Motzkin}
 \end{proof}
-\section{Computation of the dimension of the double dual}
-Take a module $M_{i,k}$, where $i$ presents the first non-zero index in our chosen module and $k$ its dimension. 
-In order to compute the dual, we need to count all the projective modules, reachable from $M_{i,k}$. 
-Since we can only move towards the right, by line $j$ we refer to the diagonal starting at index $j$ and going to the right. The length of line $j$ is $d_j$.
-The reachable projectives can lie on lines $j = i, i+1, \dots, i+k-1$.
-On line $j$ there are exactly $d_j - d_{j+1} + 1$ projective modules, where $d_j$ is the number of modules on line $j$.
-Thus the number of projective modules reachable from $M_{i,k}$ is given by
-\begin{equation}
-\label{eq:reachable}
-\sum_{j=i}^{i+k-1} (d_j - d_{j+1} + 1) = d_i - d_{i+k} + k,
-\end{equation}
-and is equal to the dimension of the dual $M^*_{i,k}$.
-Since the dual lies on the line extending the upper bound of the rectangle of reachable modules, the first index is given by $i - d_i + 1$.
-(From index $i$ we go up $d_i - 1$ times to get the right most vertex of the triangle. To reach the dimension $1$ again we then need to go down $d_i - 1$ times, where each step down increases the index by $1$.)
-
-The first dual is thus the module $M_{i - d_i + 1, d_i - d_{i+k} + k}$.
-
-To compute the second dual, we reverse the arrows and move to the left on the same Dyck path. By line we now mean the diagonal starting at index $j$ and going to the left and the length of line $j$ is $c_j$.
-For convinience we will first compute the dual of an arbitrary module $M_{l,m}$ again, this time in the other direction. We will then enter the indices of the first dual obtained above.
-
-To get the dimension of the dual, by duality between projectives and injectives, we need to count the injective modules reachable from $M_{i,k}$.
-They lie on lines $j = l, l+1, \dots, l+m-1$ again and on line $j$ there are $c_j - c_{j+1} + 1$ of them.
-We get that the dimension of the dual is given by
-\begin{equation}
-\label{eq:injectives}      
-\sum_{j=l}^{l+m-1} (c_j - c_{j+1} + 1) = c_{l+m-1} - c_{l-1} + m.
-\end{equation}
-
-It remains to compute the first index of the dual.
-First observe that from the module $M_{l,m}$ we can reach the dimension $1$ by going down $(m - 1)$-times. The left-most vertex then lies on the same line as the lower vertex and thus has index $l + m - 1$.
-From the left most vertex we need to make additional steps down, until we reach the desired dimension of the dual.
-The number of steps is $(c_{l+m-1} - dim)$, where $dim$ denotes the dimension of the dual.
-Each step down increases the index by $1$, therefore we need to increase the index of left most vertex by $c_{l+m-1} - c_{l+m-1} + c_{l-1} - m = c_{l-1} - m$, where we took into account the dimension computed above.
-
-We get that the first index of the dual is given by 
-$$l + m - 1 + c_{l-1} - m = l + c_{l-1} - 1.$$
-
-To get the indices of double dual, we just need to set 
-\begin{align*}
-    l &= i - d_i + 1, \\
-    m &= d_i - d_{i+k} + k.
-\end{align*}
-
-We get that the double dual of module $M_{i,k}$ is given by the indices
-\begin{align*}
-    &i - d_i + c_{i - d_i}, \\
-    &k + d_i - d_{i+k} + c_{i+k-{d_{i+k}}} - c_{i-d_i}.
-\end{align*}
-
-In order for the module $M_{i,k}$ to be reflexive, we need to have $i - d_i + c_{i - d_i} = i$ and $k + d_i - d_{i+k} + c_{i+k-{d_{i+k}}} - c_{i-d_i} = k$.
-The first equation gives us $c_{i - d_i} = d_i$ and the second one, taking into account also the first equality, gives us $d_{i+k} = c_{i+k-{d_{i+k}}}$.
-
 
 
 \bibliographystyle{plain} 
