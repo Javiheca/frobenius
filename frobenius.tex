@@ -73,7 +73,7 @@ We ilustrate our method with the following Auslander-Reiten quiver corresponding
 \]
 Moreover we can determine precisely the dual using the following remark and proposition.
 \begin{remark}
-    $Hom(s_{i,k},A)\cong Ae_i/J^wA$ where $w$ is the dimension of the dual. This means that the dual is indecomposable. We can further obtain more information about the dual by regarding the projective module $s_{i',k'}$ for the smallest $i'$ such that $Hom(s_{i,k},s_{i',k'})\neq 0$ then is clear that $Hom(s_{i,k},R)\cong s_{i',w}.$ 
+    $Hom(s_{i,k},A)\cong Ae_i/J^wA$ where $w$ is the dimension of the dual. This means that the dual is indecomposable. We can further obtain more information about the dual by regarding the projective module $s_{i',k'}$ for the smallest $i'$ such that $Hom(s_{i,k},s_{i',k'})\neq 0$ then it is clear that $Hom(s_{i,k},R)\cong s_{i',w}.$ 
 \end{remark}
 With this it is clear that in order to compute the dual we should regard the number of projectives in the Dyck path, to which there exist non trivial maps from our module. We should find the one with the lowest $i$ which is the one more on the right in the picture. We realize this by the following geometrical construction. 
 
@@ -81,8 +81,8 @@ If we want to compute the dual of $s_{i,k}$ we draw a rectangle
  with one of the vertices in $s_{i,k}.$ We draw a line in direction right 
  down until we touch the $x$ axis and from there up right until 
  the quiver ends. We finish the rectangle by drawing two parallel
-  lines in the obvious way. This method is ilustrate in the figure for the idecomposable module $s_{1,3}$ with the blue lines representing the rectangle. 
-  By the properties of the Auslander-Reiten quiver the amount of projectives in the square corresponds to the dimension of the dual. We also know by the explanation above that the dual should have same first index as the vertex in the right top position.
+  lines in the obvious way. This method is ilustrated in the figure for the idecomposable module $s_{1,3}$ with the blue lines representing the rectangle. 
+  By the properties of the Auslander-Reiten quiver the amount of projectives in the square corresponds to the dimension of the dual. We also know by the explanation above that the dual should have same first index as the vertex, non adjacent to the initial module.
 \begin{proposition}
     For a Nakayama algebra with Kupisch series $c_i=\text{dim}(e_iA)$ and $d_i=\text{dim}(Ae_i)$, the dual of $s_{i,k}$ is 
 	$s_{i-d_i+1,k+d_i-d_{i+k}}.$
@@ -151,7 +151,7 @@ We study now the specialization of the formula above for the case of simple modu
 \begin{proof}
 	We notice that $d_k\geq d_{k+1}$ is a specialization of the condition in Theorem \ref{Theorem reflexive modules}.
 	The other inequality comes from a study of the dimension of the double dual. Notice that we need that the dual of our module has just one injective reachable.
-	Moreover we know this injective should be in the same diagonal(from right to left) otherwise it will not be torsion free. The condition for such a diagonal to have jut one injective is $d_{k}\leq d_{k-1}$ otherwise clearly there will be more injectives in that diagonal.
+	Moreover we know this injective should be in the same diagonal(from right to left) otherwise it will not be torsion free. The condition for such a diagonal to have just one injective is $d_{k}\leq d_{k-1}$ otherwise clearly there will be more injectives in that diagonal.
 \end{proof}
 \begin{theorem}
 	Let $F$ the Lalanne-Kreweras involution. 
@@ -243,7 +243,7 @@ We study now the specialization of the formula above for the case of simple modu
 \end{proof}
 
 \begin{corollary}
-	The number of Nakayama algebras with $n$ simple modules and not of them reflexive except the projective one is given by the Motzkin numbers.
+	The number of Nakayama algebras with $n$ simple modules and none of them reflexive except the projective one is given by the Motzkin numbers.
 \end{corollary}
 \begin{proof}
 	We first notice that checking the number of modules with non simple non projective modules is the same as checking the number of Dyckpath of length $n$ with no $UUU$.
