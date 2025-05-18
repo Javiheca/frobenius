@@ -264,6 +264,59 @@ This by induction will be $M_{j-2}$. We now notice that under a rearrengment of 
 \end{proof}
 
 
+\section{Dyck Paths and (312)-Avoiding Permutations}
+
+Recall that there is a bijection between Dyck paths and $(312)$-avoiding permutations. The map sending Dyck paths to $(312)$-avoiding permutations under this bijection will be denoted by $S$. Moreover, the statistic that assigns to each $(312)$-avoiding permutations the number of double ascents within the permutation will be denoted by $R$. 
+
+\begin{theorem}
+	Let $A$ be a Nakayama algebra with Kupisch series $c_i = \dim{(e_i A)}$ and $D$ the corresponding Dyck path. Then the number of non-projective simple reflexive modules correspond precisely with $R(S(D))$.  
+\end{theorem}
+
+\begin{proof}
+	Consider $D$ the Dyck path and $\sigma := S(D)$ its corresponding $(312)$-avoiding permutation. Then we will denote by $m_i$ the non-negative integer given by the amount of transpositions of the form $s_i$ that appear when decomposing $\sigma$ as transpositions as given by the bijection described above. Then one can consider the coKupisch series $d = \left ( d_i \right )_{i=0}^n$ corresponding to $D$. It is immediate to check the following equality: 
+	\begin{equation*}
+		d_k = 2 + m_{n-k+1} \quad 2 \leq k \leq n
+	\end{equation*}
+	while $d_0 = 1, d_1 = 2$. If we take $m_n = 0$ and $m_{n+1} = -1$, then actually the above equation still holds also for $0 \leq k \leq n$. \newline 
+
+	We are then first going to consider an instance of a double ascent in $\sigma$, that is, $\sigma(k-1) < \sigma(k) < \sigma(k+1)$ for some $2 \leq k \leq n$. We then claim that the following inequalities hold: 
+	\begin{equation*}
+		m_{k-1} \leq m_k \leq m_{k+1} 
+	\end{equation*}
+	To simplify notation, we will denote $\sigma_i := \sigma(i)$. Then observe that if $l > \sigma_{k+1}$ and $l = \sigma_i$ for some $i$, then $k+1 < i$. If not, then we would have a $(312)$-pattern given by $\sigma_i \sigma_{k-1} \sigma_{k+1}$ hence a contradiction. In particular, it inmediately follows that $k+1 \leq \sigma_{k+1}$. For the same reason, we have that if $l > \sigma_k$ and $l = \sigma_i$ for some $i$, then $k < i$ and, hence, $k \leq \sigma_k$. \newline
+
+	We will now give an explicit formula for $m_{k+1},m_k$. We claim first that 
+	\begin{equation*}
+		m_{k+1} = | \{ j : k + 1 < j \leq \sigma_{k+1} \} | = \sigma_{k+1} - (k+1)
+	\end{equation*}
+	To do this, we are going to count the amount of transpositions $s_{k+1}$ appear when decomposing $\sigma$ into transpositions via the explicit algorithm. Since for all of the $l > \sigma_{k+1}$ we have that they appear after the $k+1$ position in $\sigma$, we can assume without loss of generality that all of the $l > \sigma_{k+1}$ are in their corresponding position, i.e. $\sigma_l = l$ for $l > \sigma_{k+1}$, since it does not affect to counting the transposition $s_{k+1}$. Now we are going to study how the elements $j$ such that $k+1 < j \leq \sigma_{k+1}$ appear in the permutation $\sigma$. We make the following distinction: 
+	\begin{enumerate}
+		\item On the one hand, we can have that $j = \sigma_i$ for $i < k+1$.  
+		\item Consider the set $\{ j : j = \sigma_i, i > k+1 \} = \{ j_1, \ldots,j_s \}$ where $j_1 > \cdots > j_s$. Then, we have that 
+	\begin{equation*}
+		\sigma = \left ( \cdots \sigma_{k-1} \sigma_k \sigma_{k+1} j_1 \cdots j_s \cdots | (\sigma_{k+1} + 1) \cdots n  \right )
+	\end{equation*}
+	To check this, just observe that for any $k+1 < j = \sigma_i \leq \sigma_{k+1}$ with $i > k+1$ and any $j' = \sigma_{i'}$ for which $i' < i$ it follows that $\sigma_{i+1} > j' > j > k+1$ by the $(312)$-avoiding condition. 
+	\end{enumerate}
+	We will then argue using the above observation that indeed we need to apply one $s_{k+1}$ for each $k+1 < j \leq \sigma_{k+1}$. If $j$ is of the first type of the distinction above, it is clear that we have to apply an $s_{k+1}$ by the condition $j > k+1$. On the other hand, for the $j$ from the second type, it is also clear that we use a $s_{k+1}$ transposition since these $j$'s orderly lie in the $k+1$-th position of the permutation. When all of the $k+1 < j$ have been ordered, clearly no more instances of $s_{k+1}$ appear in the decomposition, thus we have indeed proved that 
+	\begin{equation*}
+		m_{k+1} = \sigma_{k+1} - (k+1)
+	\end{equation*} 
+	If one checks above argument, the role of $\sigma_{k+1}$ can also be played by $\sigma_k$ and, hence, by the same reasoning: 
+	\begin{equation*}
+		m_k = \sigma_k - k
+	\end{equation*}
+	As $\pi_k < \pi_{k+1}$, it then follows that $m_k \leq m_{k+1}$ as desired. Finally, observe that  
+	\begin{equation*}
+		m_{k-1} \leq \pi_{k-1} - (k-1)
+	\end{equation*}
+	and thus $m_{k-1} \leq m_k$. Therefore, we have proved that
+	\begin{equation*}
+		d_{n-k+2} \leq d_{n-k+1} \leq d_{n-k}
+	\end{equation*}
+	and thus $S_{n-k+1}$ is a simple reflexive module by the criterion proved above. 
+\end{proof}
+
 \bibliographystyle{plain} 
 \bibliography{refs}
 
