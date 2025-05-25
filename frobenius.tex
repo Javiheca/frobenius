@@ -314,7 +314,26 @@ Recall that there is a bijection between Dyck paths and $(312)$-avoiding permuta
 	\begin{equation*}
 		d_{n-k+2} \leq d_{n-k+1} \leq d_{n-k}
 	\end{equation*}
-	and thus $S_{n-k+1}$ is a simple reflexive module by the criterion proved above. 
+	and thus $S_{n-k+1}$ is a simple reflexive module by the criterion proved above. \newline
+
+	Conversely, assume that $S_{n-k+1}$ is a simple reflexive module. Then by the same argument as above we have that 
+	\begin{equation*}
+		m_{k-1} \leq m_k \leq m_{k+1}
+	\end{equation*}
+	We then claim that $\sigma(k-1) < \sigma(k) < \sigma(k+1)$. To do this we will argue by induction on the lenght of the permutation $n$. When $n = 3$, then the only option is $m_1 \leq m_2 \leq m_3$ and this occurs if and only if $m_1 = m_2 = m_3 = 0$, that is, $\sigma$ is the identity. Hence $\sigma_{1} < \sigma_2 < \sigma_3$ as desired. Now assume that the claim holds for permutations of length $n$ and consider a permutation $\sigma \in S_n(312)$ such that $m_{k-1} \leq m_k \leq m_{k+1}$. If $k = n-1$, then since $m_n = 0$ it then follows that $m_{n-2} = m_{n-1} = 0$. In particular, $\sigma_n = n$ and hence we can apply induction hypothesis. Thus without loss of generality we may assume that $k < n-1$. Letting $\sigma_i = n$ for some $1 \leq i \leq n$, we have that whenever $i \geq k+1$ we can similarly apply induction hypothesis to conclude. We claim that this is the only situation we may encounter. For the sake of contradiction, assume that $i < k + 1$. Denote by $\sigma' \in S_{n-1}(312)$ the permutation obtained by placing $n$ in itss position and then restricting the permutation to $\{1,\ldots,n-1\}$. Similarly denote by $m_j'$ the amount of transpositions $s_j$ that appear when writing $\sigma'$ as a product of transpositions (in the previously described order). Then it is obvious that 
+	\begin{equation*}
+		m_{k-1} \leq m_k \leq m_{k+1} \Rightarrow m_{k-1}' \leq m_k' \leq m_{k+1}'
+	\end{equation*} 
+	Hence we may apply the induction hypothesis to $\sigma'$ to conclude that $\sigma'_{k-1} < \sigma'_k < \sigma'_{k+1}$. We may now distinguish two cases: 
+	\begin{enumerate}
+		\item $i \leq k-1$. In this case, it is clear that $\sigma_k = \sigma'_{k-1} < \sigma'_k = \sigma_{k+1}$. However, we then have that 
+		\begin{equation*}
+			\sigma = \left (\cdots n \cdots \sigma_{k-1} \sigma_k \sigma_{k+1} \cdots \right )
+		\end{equation*}
+		giving rise to the (312)-pattern $\sigma_i \sigma_k \sigma_{k+1}$, hence a contradiction.
+		\item $i = k$ follows by a similar reasoning. In this case, we have that $\sigma_k' = \sigma_{k+1} < \sigma_{k+2} = \sigma'_{k+1}$. Therefore, we have that $\sigma_k \sigma_{k+1} \sigma_{k+2}$ is a $(312)$-pattern which again yields a contradiction.
+	\end{enumerate}
+	Having seen this, one concludes that $S_{n-k+1}$ is a simple reflexive module if and only if $\sigma(k-1) < \sigma(k) < \sigma(k+1)$, concluding with the desired bijection. 
 \end{proof}
 
 \bibliographystyle{plain} 
